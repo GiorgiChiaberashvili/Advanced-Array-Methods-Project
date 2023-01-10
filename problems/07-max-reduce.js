@@ -15,7 +15,9 @@ console.log(maxWithReduce([-2, -3, -7, 3])); // 3
 */
 
 let maxWithReduce = function(nums) {
-    // Your code here
+  return nums.reduce(function (previousLargestNumber, currentLargestNumber) {
+    return (currentLargestNumber > previousLargestNumber) ? currentLargestNumber : previousLargestNumber;
+  }, 0);
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

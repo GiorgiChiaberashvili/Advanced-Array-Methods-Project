@@ -9,11 +9,28 @@ Examples:
 console.log(sumForEach([4, 3, -1, 10])); // 16
 console.log(sumForEach([6, 7, 2])); // 15
 console.log(sumForEach([])); // 0
+
 */
 
-let sumForEach = function(arr) {
-  // Your code here
-};
+function sumForEach(array) {
+  let sum = 0;
+
+  array.forEach(item => {
+    sum += item;
+  });
+  return sum;
+}
+
+
+// let sumForEach = function(arr){
+//   let sum = 0;
+
+//   for(let i = 0; i < arr.length; i++){
+//       sum += arr[i]
+//   }
+//   return sum
+// };
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
