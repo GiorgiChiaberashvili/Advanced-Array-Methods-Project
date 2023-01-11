@@ -16,14 +16,20 @@ console.log(hasThreeVowels('go home'));         //  false
 
 */
 
-let hasThreeVowels = function(string) {
-        const vowels = 'aeiou';
-        if( [...string].filter(e => vowels.indexOf(e.toLowerCase()) > -1).length >= 3){
-            return true
+function hasThreeVowels(string) {
 
+    let vowels = "aeiou";
+    let uniqueVowels = new Set();
+
+    for(let char of string){
+        if (vowels.includes(char)) {
+            uniqueVowels.add(char);
+            if(uniqueVowels.size >=3)
+                return true;
         }
-        return false
-      }
+    }
+    return false;
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

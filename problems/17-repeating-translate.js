@@ -28,26 +28,33 @@ console.log(repeatingTranslate("her family flew to France"));   // "herer family
 
 */
 
-let repeatingTranslate = function(sentence) {
+function repeatingTranslate(sentence) {
+    const vowels = "aeiou";
+
+    function translateWord(word) {
+        if (word.length < 3) {
+            return word;
+        }
+        let lastVowelIndex = -1;
+        for (let i = word.length - 1; i >= 0; i--) {
+            if (vowels.includes(word[i])) {
+                lastVowelIndex = i;
+                break;
+            }
+        }
+        if (lastVowelIndex === word.length - 1) {
+            return word + word;
+        } else {
+            return word + word.slice(lastVowelIndex);
+        }
+    }
+
+    let words = sentence.split(" ");
+    let translatedWords = words.map(translateWord);
+    return translatedWords.join(" ");
 }
 
 
-let translateWord = function(word) {
-
-        let vowels = 'aeiou';
-        let lastChar = word[word.length - 1];
-        if (vowels.includes(lastChar)) {
-            return word + word;
-        }
-
-        let i = word.length - 1;
-        while (i >= 0) {
-            if (vowels.includes(word[i])) {
-                return word + word.slice(i);
-            }
-            i--;
-        }
-    };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

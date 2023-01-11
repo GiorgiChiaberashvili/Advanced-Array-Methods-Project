@@ -17,14 +17,18 @@ console.log(shortestWord('do what you enjoy'));         // 'do'
 let shortestWord = function(sentence) {
 
   let words = sentence.split(' ');
-  let shortestWord ='fox'
-
-  let shortest = words.reduce((shortestWord, currentWord) => {
-    return currentWord.length < shortestWord.length ? currentWord : shortestWord;
-  }, words[0]);
-
-  return shortest;
+  let firstWord = words[0];
+  let firstWordIndex = 0;
+  return words.reduce((shortestWord, currentWord, currentIndex) => {
+    if (currentWord.length < shortestWord.length || (currentWord.length === shortestWord.length && currentIndex > firstWordIndex)) {
+      firstWordIndex = currentIndex;
+      return currentWord;
+    } else {
+      return shortestWord;
+    }
+  }, firstWord);
 }
+
 
 // Your code here
 

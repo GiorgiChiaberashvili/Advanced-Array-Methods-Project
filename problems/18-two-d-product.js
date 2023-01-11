@@ -25,9 +25,13 @@ console.log(twoDimensionalProduct(arr2)); // 88
 
 */
 
-let twoDimensionalProduct = function(arr) {
-  return map1 = array1.map(x =>   x * 2);
-};
+function twoDimensionalProduct(array) {
+  return array.reduce((acc, subArray) => {
+    return acc * subArray.reduce((acc, value) => acc * value, 1);
+  }, 1);
+}
+
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
